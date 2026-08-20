@@ -344,6 +344,3 @@ This project is open-source and available under the [MIT License](LICENSE).
 For support, please open an issue in the repository or contact the development team.
 
 ---
-
-**Project Status**: Development / In Progress  
-**Last Updated**: August 2026
