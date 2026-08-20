@@ -24,6 +24,40 @@ City Mart is a fully responsive e-commerce web application built with PHP, MySQL
 - **Order Management**: View and process customer orders
 - **Product Management**: Add, update, and remove products
 
+## 🔄 Application Workflow
+
+flowchart TD
+A["City Mart<br/>E-Commerce Platform"]
+
+    A --> U["User"]
+    A --> AD["Admin"]
+
+    %% User Workflow
+    U --> U1["Login / Register"]
+    U1 --> U2["Browse Products"]
+    U2 --> U3["Select Product"]
+    U3 --> U4["Add to Cart"]
+    U4 --> U5["Update / Remove Items"]
+    U5 --> U6["View Cart"]
+    U6 --> U7["Order Summary"]
+    U7 --> U8["Place Order"]
+    U8 --> U9["Order Confirmation"]
+
+    %% Admin Workflow
+    AD --> AD1["Admin Login"]
+    AD1 --> AD2["Admin Dashboard"]
+    AD2 --> AD3["Product Management"]
+    AD2 --> AD4["Order Management"]
+    AD2 --> AD5["User Management"]
+
+    AD3 --> AD31["Add / Update / Remove Products"]
+    AD4 --> AD41["View / Process Orders"]
+    AD5 --> AD51["Manage Users"]
+
+    %% Order Connection
+    U8 -. "Order Created" .-> AD4
+    AD41 -. "Order Status" .-> U9
+
 ## Technical Stack
 
 ### Backend
@@ -53,22 +87,22 @@ The application uses a database named `ecommerce` with the following key tables:
 
 ### User Table (`user_form`)
 
-| Column     | Type    | Description              |
-|------------|---------|--------------------------|
-| id         | INT     | Primary key, auto increment |
-| name       | VARCHAR | User's full name         |
-| email      | VARCHAR | User's email address     |
-| password   | VARCHAR | Hashed password (MD5)    |
-| user_type  | ENUM    | 'admin' or 'user'        |
+| Column    | Type    | Description                 |
+| --------- | ------- | --------------------------- |
+| id        | INT     | Primary key, auto increment |
+| name      | VARCHAR | User's full name            |
+| email     | VARCHAR | User's email address        |
+| password  | VARCHAR | Hashed password (MD5)       |
+| user_type | ENUM    | 'admin' or 'user'           |
 
 ### Orders Table (`orders`)
 
-| Column           | Type    | Description              |
-|------------------|---------|--------------------------|
+| Column           | Type    | Description                 |
+| ---------------- | ------- | --------------------------- |
 | id               | INT     | Primary key, auto increment |
-| product_name     | VARCHAR | Name of the product      |
-| product_quantity | INT     | Quantity ordered         |
-| product_price    | DECIMAL | Price of the product     |
+| product_name     | VARCHAR | Name of the product         |
+| product_quantity | INT     | Quantity ordered            |
+| product_price    | DECIMAL | Price of the product        |
 
 ## File Structure
 
@@ -132,7 +166,6 @@ ecommerce/
    ```
 
 2. **Move to Web Server Directory**
-
    - **XAMPP**: `C:\xampp\htdocs\ecommerce`
    - **WAMP**: `C:\wamp64\www\ecommerce`
    - **MAMP**: `/Applications/MAMP/htdocs/ecommerce`
@@ -166,7 +199,7 @@ ecommerce/
    );
 
    -- Default admin user (password: admin123)
-   INSERT INTO user_form (name, email, password, user_type) 
+   INSERT INTO user_form (name, email, password, user_type)
    VALUES ('Admin', 'admin@example.com', '21232f297a57a5a743894a0e4a801fc3', 'admin');
    ```
 
@@ -175,7 +208,6 @@ ecommerce/
    Update `config.php` and `database.php` with your database credentials.
 
 6. **Start Server**
-
    - **XAMPP**: Start Apache and MySQL services
    - **WAMP**: Start the services
    - **MAMP**: Start the servers
@@ -209,14 +241,14 @@ Fetches all orders from the database.
 
 ```json
 {
-    "orders": [
-        {
-            "id": 1,
-            "product_name": "iPhone 12",
-            "product_quantity": 2,
-            "product_price": 98990.00
-        }
-    ]
+  "orders": [
+    {
+      "id": 1,
+      "product_name": "iPhone 12",
+      "product_quantity": 2,
+      "product_price": 98990.0
+    }
+  ]
 }
 ```
 
@@ -320,12 +352,12 @@ Fetches all orders from the database.
 
 ### Common Issues and Solutions
 
-| Issue | Solution |
-|-------|----------|
-| Cannot connect to database | Verify MySQL service is running; check credentials in `config.php`; ensure database exists |
-| Login not working | Check if user exists in database; verify password hash matches; clear browser cookies |
-| Images not loading | Check image paths in PHP files; verify images exist in the correct directory; check file permissions |
-| 404 errors | Verify file paths; check web server configuration; ensure `.htaccess` is properly configured |
+| Issue                      | Solution                                                                                             |
+| -------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Cannot connect to database | Verify MySQL service is running; check credentials in `config.php`; ensure database exists           |
+| Login not working          | Check if user exists in database; verify password hash matches; clear browser cookies                |
+| Images not loading         | Check image paths in PHP files; verify images exist in the correct directory; check file permissions |
+| 404 errors                 | Verify file paths; check web server configuration; ensure `.htaccess` is properly configured         |
 
 ## Contributing
 
