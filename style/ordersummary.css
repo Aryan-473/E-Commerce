@@ -1,0 +1,45 @@
+*{
+    margin:1vh 1vw 1vh 1vw ;
+    padding: 0;
+}
+.navbar{
+    background-color: rgba(75, 2, 2, 0.199);
+    display:inline-block;
+    list-style-type: none;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    width: 100%;
+}
+.nav-list li{
+    display:inline-block;
+    list-style-type: none;
+}
+.nav-list li a{
+    font-size: larger;
+    text-decoration: none;
+    color: black;
+}
+.navbar1{
+    background-color: rgba(75, 2, 2, 0.199);
+    display:inline-block;
+    list-style-type: none;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    width: 100%;
+}
+.nav1-list li{
+    display:inline-block;
+    list-style-type: none;
+}
+.nav1-list li a{
+    font-size: larger;
+    text-decoration: none;
+    color: black;
+}
+.address{
+    display: inline;
+   padding: 20px 20px;
+
+}
+
+
